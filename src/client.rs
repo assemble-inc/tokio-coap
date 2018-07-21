@@ -126,6 +126,15 @@ impl Client {
         self
     }
 
+    pub fn set_option<T: Option + Byteable>(&mut self, option: T) {
+        self.msg.options.push(option);
+    }
+
+    pub fn with_option<T: Option + Byteable>(mut self, option: T) -> Self {
+        self.msg.options.push(option);
+        self
+    }
+
     pub fn send(self) -> IoFuture<Message> {
         let local_addr = "0.0.0.0:0".parse().unwrap();
 
