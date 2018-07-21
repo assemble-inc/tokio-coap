@@ -380,6 +380,6 @@ options![
     (35, ProxyUri, string, 1, 1034),
     (29, ProxyScheme, string, 1, 255),
     (60, Size1, uint, 0, 4),
+    (61, Token, string, 0, 32),
     (284, NoResponse, uint, 0, 1),
 ];
-
