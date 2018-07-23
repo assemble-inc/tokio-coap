@@ -2,7 +2,7 @@ use codec::CoapCodec;
 use Endpoint;
 use error::{Error, UrlError};
 use message::{Message, Code};
-use message::option::{Option, Options, UriPath, UriHost, UriQuery};
+use message::option::{Option, Options, UriPath, UriHost, UriQuery, Byteable};
 
 use std::borrow::Cow;
 use std::net::Ipv4Addr;
