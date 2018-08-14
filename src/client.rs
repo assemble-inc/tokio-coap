@@ -2,7 +2,7 @@ use codec::CoapCodec;
 use Endpoint;
 use error::{Error, UrlError};
 use message::{Message, Code};
-use message::option::{Option, Options, UriPath, UriHost, UriQuery};
+use message::option::{Option, Options, UriPath, UriHost, UriQuery, Byteable};
 
 use std::borrow::Cow;
 use std::net::Ipv4Addr;
@@ -123,6 +123,15 @@ impl Client {
     pub fn with_endpoint(mut self, endpoint: Endpoint) -> Self {
         self.set_endpoint(endpoint);
 
+        self
+    }
+
+    pub fn set_option<T: Option + Byteable>(&mut self, option: T) {
+        self.msg.options.push(option);
+    }
+
+    pub fn with_option<T: Option + Byteable>(mut self, option: T) -> Self {
+        self.msg.options.push(option);
         self
     }
 
